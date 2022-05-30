@@ -6,8 +6,8 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import axios from "axios";
 
 function Hello() {
-  const [LondonLon, setLondonLon] = useState();
-  const [LondonLat, setLondonLat] = useState();
+  const [cityName, setcityName] = useState();
+  console.log(cityName);
 
   useEffect(() => {
     getReq();
@@ -16,21 +16,27 @@ function Hello() {
   const getReq = async () => {
     try {
       const req = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?apiKey=ce916057fd825bd31ff8b2656372f0ba&lat=57&lon=-2.15&}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
-      setLondonLon(req.data.coord.lon);
-      setLondonLat(req.data.coord.lat);
+      console.log(req);
     } catch (error) {}
   };
 
+  function searchValue(e) {
+    const value = e.target.value;
+    setcityName(value);
+  }
+
   return (
     <div className="body">
-      <StepForwardOutlined />
+      <input className="search" type="text" onChange={searchValue} />
+      {/* <StepForwardOutlined />
       <label htmlFor="primary">Crood.lon for London : </label>
-      <Button type="primary">{LondonLon}</Button><br />
+      <Button type="primary">{LondonLon}</Button>
+      <br />
       <StepForwardOutlined />
       <label htmlFor="danger">Crood.lat for London : </label>
-      <Button className="btn-Lot" type="danger">{LondonLat}</Button>
+      <Button type="danger">{LondonLat}</Button> */}
     </div>
   );
 }
