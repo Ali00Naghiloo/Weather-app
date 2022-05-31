@@ -6,12 +6,12 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import axios from "axios";
 
 function Hello() {
-  const [cityName, setcityName] = useState();
-  console.log(cityName);
+  const [cityName, setcityName] = useState("");
+  
 
   useEffect(() => {
     getReq();
-  }, []);
+  }, [cityName]);
 
   const getReq = async () => {
     try {
@@ -23,13 +23,16 @@ function Hello() {
   };
 
   function searchValue(e) {
-    const value = e.target.value;
-    setcityName(value);
+    setcityName(e.target.value);
+    console.log(cityName);
   }
 
   return (
     <div className="body">
-      <input className="search" type="text" onChange={searchValue} />
+      <form >
+      <input className="search" type="text" onChange={searchValue}/>
+      <input className="submit" type="submit" value="Search" />
+      </form>
       {/* <StepForwardOutlined />
       <label htmlFor="primary">Crood.lon for London : </label>
       <Button type="primary">{LondonLon}</Button>
