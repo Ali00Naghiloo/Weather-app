@@ -1,10 +1,16 @@
-import Hello from './components/1';
+import City from './components/City';
+import Login from './components/Login';
+import {BrowserRouter as Router, Routes , Route} from "react-router-dom";
 
 function App() {
   return (
-    <>
-    <Hello/>
-    </>
+    <Router>
+      <Routes>
+        {/* <Route path='/' element={<Login/>}/> */}
+        <Route path='/' element={<City/>}/>
+      </Routes>
+    
+    </Router>
   );
 }
 
