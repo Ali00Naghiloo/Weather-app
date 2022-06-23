@@ -29,17 +29,24 @@ code {
   background-color: rgb(22, 179, 231);
 }
 
+
+
+
 .search-input {
   width: 350px;
   height: 40px;
   font-size: 20px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid #ccc;
   border-radius: 5px;
   background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
   padding: 0 10px;
-  box-shadow: 2px 2px 15px;
+  box-shadow: 2px 2px 15px #ccc;
   display: block;
   margin: 20px auto;
+}
+
+.search-input::placeholder {
+  color: #ccc;
 }
 
 .submit {
@@ -71,11 +78,19 @@ code {
 
 .bigcity-item {
   width: 250px;
-  border: 1px solid #fff;
+  border: 1px solid;
   border-radius: 5px;
   padding: 15px;
   margin-top: 20px;
   margin-bottom: 80px;
+}
+
+.bigcity-item h1 {
+  color: #fff;
+}
+
+.bigcity-item h4 {
+  color: #fff;
 }
 
 
