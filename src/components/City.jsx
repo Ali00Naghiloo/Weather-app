@@ -27,9 +27,9 @@ function City() {
       const req1 = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${Lat}&lon=${Lon}&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
-      setWind(req1.data.wind.speed);
       setDescription(req1.data.weather[0].description);
       setTemp(req1.data.main.temp);
+      setWind(req1.data.wind.speed);
       setCityReq1(req1.data.name);
       setCountry(req1.data.sys.country);
       console.log(req1);
