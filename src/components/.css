@@ -1,24 +1,5 @@
-.body {
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,21 +7,89 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(22, 179, 231);
+  background-color: rgb(240, 21, 21);
 }
+
+
+
+/* -----------------------bigCity-------------------- */
+
+.continer-bigcity {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.bigcity-item {
+  width: 20%;
+  height: 90%;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 4px 4px 20px #ccc;
+}
+
+.bigcity-item h1 {
+  color: #fff;
+  text-shadow: 3px 3px 15px black;
+  font-size: 2em;
+}
+
+.bigcity-item h4 {
+  color: #fff;
+  text-shadow: 3px 3px 15px black;
+  font-size: 1.2em;
+}
+
+.london {
+  background: url(../Assets/luke-stackpoole-mOEqOtmuPG8-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.paris {
+  background: url(../Assets/anthony-delanoix-QAwciFlS1g4-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.new-york {
+  background: url(../Assets/thomas-habr-6NmnrAJPq7M-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+
 
 
 
 /* ----------------------City---------------------- */
 
+.continer-city {
+  margin-top: 15vh;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.continer-city span {
+  font-size: 1.5em;
+}
+
 .search-input {
-  width: 350px;
-  height: 40px;
-  font-size: 20px;
+  width: 50vh;
+  height: 10px;
+  font-size: 1.4em;
   border: 2px solid #D5B676;
   border-radius: 5px;
   background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
-  padding: 0 10px;
+  padding: 25px 10px;
   box-shadow: 2px 2px 15px #D5B676;
   display: block;
   margin: 20px auto;
@@ -62,44 +111,10 @@ code {
 }
 
 .wind-logo {
-  width: 15px;
+  width: 20px;
+  padding-left: 7px;
   display: inline;
 }
-
-
-
-
-/* -----------------------bigCity-------------------- */
-
-.continer-bigcity {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.bigcity-item {
-  width: 40vh;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 15px;
-  margin-top: 20px;
-  margin-bottom: 80px;
-}
-
-.bigcity-item h1 {
-  color: #fff;
-}
-
-.bigcity-item h4 {
-  color: #fff;
-}
-
-.london {
-  background: url(../Assets/luke-stackpoole-mOEqOtmuPG8-unsplash.jpg);
-  background-repeat: no-repeat;
-}
-
 
 
 

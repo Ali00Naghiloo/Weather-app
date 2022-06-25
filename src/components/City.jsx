@@ -56,7 +56,7 @@ function City() {
   }
 
   return (
-    <div className="body">
+    <div className="continer-city">
       <input
         placeholder="Search Your City ..."
         className="search-input"
@@ -64,7 +64,7 @@ function City() {
       />
       {/* <input className="submit" type="submit" value="Search" onClick={SV1} /><br /> */}
       <h1 style={{ color: "#fff" }}>
-        {cityName ? cityReq1 + "," + country : ""}
+        {cityName ? cityReq1 + "," + country : " "}
       </h1>
       <span>Weather Description : {cityName ? description : ""}</span>
       <br />
