@@ -1,6 +1,6 @@
 import City from "./components/City";
 import Login from "./components/Login";
-import BigCity from "./components/bigCity";
+import BigCity from "./components/BigCity";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
