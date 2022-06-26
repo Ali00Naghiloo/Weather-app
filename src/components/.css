@@ -10,6 +10,15 @@
   background-color: rgb(240, 21, 21);
 }
 
+@font-face {
+  font-family: Gilory;
+  src: url("../Assets/gilory-font/Gilroy-Bold.woff");
+}
+
+* {
+  font-family: Gilory;
+}
+
 
 
 /* -----------------------bigCity-------------------- */
