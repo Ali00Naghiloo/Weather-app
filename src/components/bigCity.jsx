@@ -31,7 +31,9 @@ const BigCity = () => {
       setLonDes(London.data.weather[0].description);
       setLonTamp(London.data.main.temp);
       setLonWind(London.data.wind.speed);
-    } catch (error) {}
+    } catch (error) {
+      alert(error)
+    }
   };
 
   const request1 = async () => {
@@ -82,20 +84,20 @@ const BigCity = () => {
         <div className="bigcity-item london">
           <h1>London</h1>
           <h4>What's the weather like? {lonDes} </h4>
-          <h4>tamp : {lonTamp} </h4>
-          <h4>Wind Speed : {lonWind} </h4>
+          <h4>tamp : {lonTamp + " °"} </h4>
+          <h4>Wind Speed : {lonWind + " Km/h"} </h4>
         </div>
         <div className="bigcity-item paris">
           <h1>Paris</h1>
           <h4>What's the weather like? {parDes} </h4>
-          <h4>tamp : {parTamp} </h4>
-          <h4>Wind Speed : {parWind} </h4>
+          <h4>tamp : {parTamp + " °"} </h4>
+          <h4>Wind Speed : {parWind + " Km/h"} </h4>
         </div>
         <div className="bigcity-item new-york">
           <h1>New York</h1>
           <h4>What's the weather like? {nyDes} </h4>
-          <h4>tamp : {nyTamp} </h4>
-          <h4>Wind Speed : {nyWind} </h4>
+          <h4>tamp : {nyTamp + " °"} </h4>
+          <h4>Wind Speed : {nyWind + " Km/h"} </h4>
         </div>
       </div>
     </>
