@@ -4,5 +4,7 @@ body {
   width: 100%;
   background: url("./Assets/rain-1.gif");
   background-size: 100% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
   color: #fff;
 }

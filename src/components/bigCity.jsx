@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper";
+// import "swiper/css";
+// import "swiper/css/free-mode";
+// import "swiper/css/pagination";
+// import { FreeMode, Pagination } from "swiper";
 
 const BigCity = () => {
   const [lonDes, setLonDes] = useState();
@@ -26,7 +26,7 @@ const BigCity = () => {
   const request = async () => {
     try {
       const London = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=-0.1278&appid=ce916057fd825bd31ff8b2656372f0ba`
+        `https://api.openweathermap.org/data/2.5/weather?lat=51.5074&units=metric&lon=-0.1278&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
       setLonDes(London.data.weather[0].description);
       setLonTamp(London.data.main.temp);
@@ -39,7 +39,7 @@ const BigCity = () => {
   const request1 = async () => {
     try {
       const Paris = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=48.8589&lon=2.328&appid=ce916057fd825bd31ff8b2656372f0ba`
+        `https://api.openweathermap.org/data/2.5/weather?lat=48.8589&units=metric&lon=2.328&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
       setParDes(Paris.data.weather[0].description);
       setParTamp(Paris.data.main.temp);
@@ -50,7 +50,7 @@ const BigCity = () => {
   const request2 = async () => {
     try {
       const NY = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=40.7144&lon=-74.006&appid=ce916057fd825bd31ff8b2656372f0ba`
+        `https://api.openweathermap.org/data/2.5/weather?lat=40.7144&units=metric&lon=-74.006&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
       setNYDes(NY.data.weather[0].description);
       setNYTamp(NY.data.main.temp);
