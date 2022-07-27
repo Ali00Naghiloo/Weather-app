@@ -1,12 +1,9 @@
 import YourCity from "./components/YourCity";
-import Highlights from "./components/Highlights";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      {/* <Route path='/' element={<Login/>}/> */}
       <YourCity />
     </>
   );

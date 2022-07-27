@@ -142,10 +142,12 @@ function YourCity() {
 
           {cityName ? (
             <div className="weather-ico">
-            <img
-              src={`http://openweathermap.org/img/wn/${weatherIco}@4x.png`}
-              style={{ width: "100%", height: "100%" }}
-            /></div>
+              <img
+                src={`http://openweathermap.org/img/wn/${weatherIco}@4x.png`}
+                style={{ width: "100%", height: "100%" }}
+                alt="weather icon"
+              />
+            </div>
           ) : (
             ""
           )}
@@ -218,7 +220,11 @@ function YourCity() {
             <span key={index}>
               <h1>Hourly Weather</h1>
               {hour.dt_txt}
-              <img style={{ width: "60px" }} src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`} alt="" />
+              <img
+                style={{ width: "60px" }}
+                src={`http://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
+                alt=""
+              />
               {hour.weather[0].description}
               <br />
               {hour.main.temp} °c
