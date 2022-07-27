@@ -1,10 +1,7 @@
 body {
   margin: 0;
-  height: 100vh;
+  padding-left: 25%;
   width: 100%;
-  background: url("./Assets/rain-1.gif");
-  background-size: 100% 100%;
-  background-position: right;
-  background-repeat: no-repeat;
+  background: rgb(238, 238, 238);
   color: #fff;
 }
