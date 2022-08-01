@@ -7,29 +7,30 @@ import { ToastContainer, toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import windLogo from "../Assets/wind-solid.svg";
-import location from "../Assets/map-pin.svg";
-import clock from "../Assets/icons8-clock.svg";
+import windLogo from "../Assets/icons1-wind-64.png";
+import location from "../Assets/icons8-location-update-48.png";
 import search from "../Assets/icons8-search.svg";
 import desico from "../Assets/icons8-description-64.png";
 import humidityico from "../Assets/icons8-humidity-53.png";
-import sunriseico from "../Assets/icons8-sunrise-50.png";
-import sunsetico from "../Assets/icons8-sunset-50.png";
-import cloudico from "../Assets/icons8-wind-64.png";
+import sunriseico from "../Assets/sun.png";
+import sunsetico from "../Assets/sun.png";
+import cloudico from "../Assets/icons8-clouds-64.png";
 import UVindexico from "../Assets/icons8-uv-index-64.png";
 import pressureico from "../Assets/icons8-pressure-64.png";
-import lightModeIco from "../Assets/icons8-sun-64.png";
-import darkModeIco from "../Assets/icons8-moon-64.png";
+import lightModeIco from "../Assets/light-icon.png";
+import darkModeIco from "../Assets/dark-icon.png";
 import { setForcast } from "../features/forcastReduser";
 import { setBackMode } from "../features/backModeRduser";
 import { setHourly } from "../features/hourlyReduser";
+import { setTempUnit } from "../features/tempUnitSlice";
+import { setCoords } from "../features/coordsSlice";
 
 function YourCityLight() {
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(setPosition);
     } else {
-      forcast.UVindex("Geolocation is not supported by this browser.");
+      console.log("Geolocation is not supported by this browser.");
     }
   }, []);
 
@@ -38,10 +39,9 @@ function YourCityLight() {
   const forcast = useSelector((state) => state.forcasts.forcast);
   const backMode = useSelector((state) => state.backMode.backMode);
   const hourly = useSelector((state) => state.hourlyWeather.hourly);
+  const tempUnit = useSelector((state) => state.tempUnit.tempUnit);
+  const coords = useSelector((state) => state.coordsSlice.coords);
   const dispatch = useDispatch();
-
-  const [tempUnit, setTempUnit] = useState(" °c");
-  const [coords, setCoords] = useState({ lat: "", lon: "" });
 
   const m = moment().locale("en").format("dddd , HH:mm");
   const notify = () => {
@@ -100,10 +100,12 @@ function YourCityLight() {
         `http://api.openweathermap.org/geo/1.0/direct?q=${forcast.cityName}&limit=1&appid=ce916057fd825bd31ff8b2656372f0ba`
       );
       getReq1(req.data[0].lat, req.data[0].lon, "metric");
-      setCoords({
-        lat: req.data[0].lat,
-        lon: req.data[0].lon,
-      });
+      dispatch(
+        setCoords({
+          lat: req.data[0].lat,
+          lon: req.data[0].lon,
+        })
+      );
     } catch (error) {
       toast.error(error);
     }
@@ -119,10 +121,12 @@ function YourCityLight() {
 
   const setPosition = (position) => {
     getReq1(position.coords.latitude, position.coords.longitude, "metric");
-    setCoords({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude,
-    });
+    dispatch(
+      setCoords({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      })
+    );
   };
 
   return (
@@ -153,9 +157,7 @@ function YourCityLight() {
             />
           </div>
 
-          <h1 style={{ color: "#fff" }} className="temp">
-            {forcast.temp + tempUnit}
-          </h1>
+          <h1 className="temp">{forcast.temp + tempUnit}</h1>
           <span className="feels-like">
             {"Feels like: " + forcast.feelLike}
           </span>
@@ -166,7 +168,7 @@ function YourCityLight() {
           <div className="break"></div>
           <span>{" " + m}</span>
           <span className="city-name">
-            <img style={{ width: "20px" }} src={location} />
+            <img style={{ width: "30px" }} src={location} />
             {forcast.cityReq1 + "," + forcast.countryReq1}
           </span>
         </div>
@@ -240,8 +242,7 @@ function YourCityLight() {
         className={`unit fa ${tempUnit === " °f" ? "selected-unit" : ""}`}
         onClick={() => {
           getReq1(coords.lat, coords.lon, "imperial");
-          // dispatch(setForcast(...forcast, tempUnit : " °f"));
-          setTempUnit(" °f");
+          dispatch(setTempUnit(" °f"));
         }}
       >
         °F
@@ -251,8 +252,7 @@ function YourCityLight() {
         className={`unit cl ${tempUnit === " °c" ? "selected-unit" : ""}`}
         onClick={() => {
           getReq1(coords.lat, coords.lon, "metric");
-          // dispatch(setForcast(...forcast, tempUnit: " °c"));
-          setTempUnit(" °c");
+          dispatch(setTempUnit(" °c"));
         }}
       >
         °C

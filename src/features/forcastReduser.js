@@ -16,8 +16,7 @@ const initialState = {
         cloud: "",
         UVindex: "",
         pressure: "",
-        tempUnit: " °c",
-    },
+    }
 };
 
 export const forcastSlice = createSlice({
